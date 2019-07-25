@@ -8,7 +8,7 @@
  
 import StoreKit
 
- protocol RoAIAPManagerProtocol: SKProductsRequestDelegate, SKPaymentTransactionObserver {
+public protocol RoAIAPManagerProtocol: SKProductsRequestDelegate, SKPaymentTransactionObserver {
     
 ///The object that acts as the delegate of the RoAIAPManager.
     
