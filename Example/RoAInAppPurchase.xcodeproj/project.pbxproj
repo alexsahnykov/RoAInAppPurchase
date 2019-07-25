@@ -9,6 +9,16 @@
 /* Begin PBXBuildFile section */
 		41F4A92733C0F201B6DCF098 /* Pods_RoAInAppPurchase_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBC153700F3CED681D9FF1EA /* Pods_RoAInAppPurchase_Tests.framework */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
+		C158FCFF22E9EFE600FD892C /* RoAProductsOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C158FCF222E9EFE600FD892C /* RoAProductsOwner.swift */; };
+		C158FD0022E9EFE600FD892C /* RoAProductsOwnerProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = C158FCF322E9EFE600FD892C /* RoAProductsOwnerProtocols.swift */; };
+		C158FD0122E9EFE600FD892C /* RoASubscribtionStatusVerificator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C158FCF522E9EFE600FD892C /* RoASubscribtionStatusVerificator.swift */; };
+		C158FD0222E9EFE600FD892C /* RoASubscribtionStatusVerificatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C158FCF622E9EFE600FD892C /* RoASubscribtionStatusVerificatorProtocol.swift */; };
+		C158FD0322E9EFE600FD892C /* RoAIAPManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C158FCF822E9EFE600FD892C /* RoAIAPManagerProtocol.swift */; };
+		C158FD0422E9EFE600FD892C /* RoAIAPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C158FCF922E9EFE600FD892C /* RoAIAPManager.swift */; };
+		C158FD0522E9EFE600FD892C /* RoAIAPManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C158FCFA22E9EFE600FD892C /* RoAIAPManagerDelegate.swift */; };
+		C158FD0622E9EFE600FD892C /* RoASubscribtionsStatement.swift in Sources */ = {isa = PBXBuildFile; fileRef = C158FCFC22E9EFE600FD892C /* RoASubscribtionsStatement.swift */; };
+		C158FD0722E9EFE600FD892C /* RoASubscribtionsStatementProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C158FCFD22E9EFE600FD892C /* RoASubscribtionsStatementProtocol.swift */; };
+		C158FD0822E9EFE600FD892C /* SubscribtionStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C158FCFE22E9EFE600FD892C /* SubscribtionStatus.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -16,11 +26,21 @@
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		87467A3A157C07AFAE674D79 /* Pods-RoAInAppPurchase_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoAInAppPurchase_Tests.release.xcconfig"; path = "Target Support Files/Pods-RoAInAppPurchase_Tests/Pods-RoAInAppPurchase_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		8CE0EBA9BDA1C19A29459645 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		C2C6F1E9E38E6F8A31E5F04C /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		8CE0EBA9BDA1C19A29459645 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		C158FCF222E9EFE600FD892C /* RoAProductsOwner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoAProductsOwner.swift; sourceTree = "<group>"; };
+		C158FCF322E9EFE600FD892C /* RoAProductsOwnerProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoAProductsOwnerProtocols.swift; sourceTree = "<group>"; };
+		C158FCF522E9EFE600FD892C /* RoASubscribtionStatusVerificator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoASubscribtionStatusVerificator.swift; sourceTree = "<group>"; };
+		C158FCF622E9EFE600FD892C /* RoASubscribtionStatusVerificatorProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoASubscribtionStatusVerificatorProtocol.swift; sourceTree = "<group>"; };
+		C158FCF822E9EFE600FD892C /* RoAIAPManagerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoAIAPManagerProtocol.swift; sourceTree = "<group>"; };
+		C158FCF922E9EFE600FD892C /* RoAIAPManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoAIAPManager.swift; sourceTree = "<group>"; };
+		C158FCFA22E9EFE600FD892C /* RoAIAPManagerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoAIAPManagerDelegate.swift; sourceTree = "<group>"; };
+		C158FCFC22E9EFE600FD892C /* RoASubscribtionsStatement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoASubscribtionsStatement.swift; sourceTree = "<group>"; };
+		C158FCFD22E9EFE600FD892C /* RoASubscribtionsStatementProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoASubscribtionsStatementProtocol.swift; sourceTree = "<group>"; };
+		C158FCFE22E9EFE600FD892C /* SubscribtionStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscribtionStatus.swift; sourceTree = "<group>"; };
+		C2C6F1E9E38E6F8A31E5F04C /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		CEFEE77DBBA0E6D2E3E0C0B6 /* Pods-RoAInAppPurchase_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoAInAppPurchase_Tests.debug.xcconfig"; path = "Target Support Files/Pods-RoAInAppPurchase_Tests/Pods-RoAInAppPurchase_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		DBC153700F3CED681D9FF1EA /* Pods_RoAInAppPurchase_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RoAInAppPurchase_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E8300B45A6BF2A72FD1419A4 /* RoAInAppPurchase.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = RoAInAppPurchase.podspec; path = ../RoAInAppPurchase.podspec; sourceTree = "<group>"; };
+		E8300B45A6BF2A72FD1419A4 /* RoAInAppPurchase.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = RoAInAppPurchase.podspec; path = ../RoAInAppPurchase.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,7 +61,6 @@
 				CEFEE77DBBA0E6D2E3E0C0B6 /* Pods-RoAInAppPurchase_Tests.debug.xcconfig */,
 				87467A3A157C07AFAE674D79 /* Pods-RoAInAppPurchase_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -57,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
+				C158FCF022E9EFE600FD892C /* Classes */,
 				607FACE81AFB9204008FA782 /* Tests */,
 				607FACD11AFB9204008FA782 /* Products */,
 				16E4B6511AE39858DF8262DF /* Pods */,
@@ -99,6 +119,55 @@
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
+		C158FCF022E9EFE600FD892C /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				C158FCF122E9EFE600FD892C /* RoAProductsOwner */,
+				C158FCF422E9EFE600FD892C /* RoASubscribtionStatusVerificator */,
+				C158FCF722E9EFE600FD892C /* RoAInAppManager */,
+				C158FCFB22E9EFE600FD892C /* RoASubscribtionsStatement */,
+				C158FCFE22E9EFE600FD892C /* SubscribtionStatus.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		C158FCF122E9EFE600FD892C /* RoAProductsOwner */ = {
+			isa = PBXGroup;
+			children = (
+				C158FCF222E9EFE600FD892C /* RoAProductsOwner.swift */,
+				C158FCF322E9EFE600FD892C /* RoAProductsOwnerProtocols.swift */,
+			);
+			path = RoAProductsOwner;
+			sourceTree = "<group>";
+		};
+		C158FCF422E9EFE600FD892C /* RoASubscribtionStatusVerificator */ = {
+			isa = PBXGroup;
+			children = (
+				C158FCF522E9EFE600FD892C /* RoASubscribtionStatusVerificator.swift */,
+				C158FCF622E9EFE600FD892C /* RoASubscribtionStatusVerificatorProtocol.swift */,
+			);
+			path = RoASubscribtionStatusVerificator;
+			sourceTree = "<group>";
+		};
+		C158FCF722E9EFE600FD892C /* RoAInAppManager */ = {
+			isa = PBXGroup;
+			children = (
+				C158FCF822E9EFE600FD892C /* RoAIAPManagerProtocol.swift */,
+				C158FCF922E9EFE600FD892C /* RoAIAPManager.swift */,
+				C158FCFA22E9EFE600FD892C /* RoAIAPManagerDelegate.swift */,
+			);
+			path = RoAInAppManager;
+			sourceTree = "<group>";
+		};
+		C158FCFB22E9EFE600FD892C /* RoASubscribtionsStatement */ = {
+			isa = PBXGroup;
+			children = (
+				C158FCFC22E9EFE600FD892C /* RoASubscribtionsStatement.swift */,
+				C158FCFD22E9EFE600FD892C /* RoASubscribtionsStatementProtocol.swift */,
+			);
+			path = RoASubscribtionsStatement;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -131,10 +200,6 @@
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = CocoaPods;
 				TargetAttributes = {
-					607FACCF1AFB9204008FA782 = {
-						CreatedOnToolsVersion = 6.3.1;
-						LastSwiftMigration = 0900;
-					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
 						LastSwiftMigration = 0900;
@@ -147,6 +212,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -218,7 +284,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C158FD0522E9EFE600FD892C /* RoAIAPManagerDelegate.swift in Sources */,
+				C158FD0122E9EFE600FD892C /* RoASubscribtionStatusVerificator.swift in Sources */,
+				C158FCFF22E9EFE600FD892C /* RoAProductsOwner.swift in Sources */,
 				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
+				C158FD0422E9EFE600FD892C /* RoAIAPManager.swift in Sources */,
+				C158FD0322E9EFE600FD892C /* RoAIAPManagerProtocol.swift in Sources */,
+				C158FD0222E9EFE600FD892C /* RoASubscribtionStatusVerificatorProtocol.swift in Sources */,
+				C158FD0022E9EFE600FD892C /* RoAProductsOwnerProtocols.swift in Sources */,
+				C158FD0622E9EFE600FD892C /* RoASubscribtionsStatement.swift in Sources */,
+				C158FD0822E9EFE600FD892C /* SubscribtionStatus.swift in Sources */,
+				C158FD0722E9EFE600FD892C /* RoASubscribtionsStatementProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

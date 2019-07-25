@@ -1,0 +1,6 @@
+framework module RoAInAppPurchase {
+  umbrella header "RoAInAppPurchase-umbrella.h"
+
+  export *
+  module * { export * }
+}
