@@ -12,14 +12,14 @@ import StoreKit
 
 public final class RoAIAPManager: NSObject, RoAIAPManagerProtocol {
     
-    weak var delegate: RoAIAPManagerDelegate?
+    weak public var delegate: RoAIAPManagerDelegate?
     
-    private(set) var products: [SKProduct]?
-    var productsIDs: Set<String>
+    private(set) public var products: [SKProduct]?
+    public var productsIDs: Set<String>
     
     private var paymentQueue = SKPaymentQueue.default()
     
-     func isIAPServrAvalable (callback: @escaping(Bool)->()) {
+    public func isIAPServrAvalable (callback: @escaping(Bool)->()) {
         if SKPaymentQueue.canMakePayments() {
             SKPaymentQueue.default().add(self)
             callback(true)
@@ -29,19 +29,19 @@ public final class RoAIAPManager: NSObject, RoAIAPManagerProtocol {
         return
     }
     
-     func getProducts() {
+    public func getProducts() {
         let productRequest = SKProductsRequest(productIdentifiers: productsIDs)
         productRequest.delegate = self
         productRequest.start()
     }
     
-     func purchased(_ productWithidentifier: String) {
+    public func purchased(_ productWithidentifier: String) {
         guard let product = products?.filter({ $0.productIdentifier == productWithidentifier }).first else {return}
         let payment = SKPayment(product: product)
         paymentQueue.add(payment)
     }
     
-     func restoreProducts() {
+    public func restoreProducts() {
         paymentQueue.restoreCompletedTransactions()
     }
     
