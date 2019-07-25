@@ -8,7 +8,8 @@
 
 import Foundation
 
-class RoASubscribtionStatement: RoASubscribtionsStatementProtocol {
+public class RoASubscribtionStatement: RoASubscribtionsStatementProtocol {
+    
     func checkSubscribeStatusInApp(_ productIdentifire: String) -> SubscribtionStatus {
         switch UserDefaults.standard.bool(forKey: productIdentifire) {
         case true:
@@ -20,10 +21,6 @@ class RoASubscribtionStatement: RoASubscribtionsStatementProtocol {
     
     func saveSubscribeStatusInApp(_ productIdentifire: String) {
         UserDefaults.standard.set(true, forKey: productIdentifire)
-    }
-    
-    func expirationDateFor(_ identifier : String) -> Date?{
-        return UserDefaults.standard.object(forKey: identifier) as? Date
     }
     
 }

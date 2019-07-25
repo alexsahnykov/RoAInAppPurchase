@@ -12,7 +12,7 @@ import StoreKit
 
 
 
-class CustomStatusVerificator: RoASubscribtionStatusVerificatorProtocol {
+public class CustomStatusVerificator: RoASubscribtionStatusVerificatorProtocol {
 
     private var sharedSecret: String
    

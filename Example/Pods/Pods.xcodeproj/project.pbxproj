@@ -7,11 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0DCFED4F089B284F5CDAF4AC99E50B57 /* ReplaceMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CD51BB22804C085D6B529EF0E0D575 /* ReplaceMe.swift */; };
 		4D402656B22D5602252E24FCEBC97163 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
 		60BDD8E517AF4BEA0D22C2841394F585 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
 		6B1E545904F85EBEE8FC484FCCE90F85 /* RoAInAppPurchase-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9CB31602CF76119F7698F85DF7091B /* RoAInAppPurchase-dummy.m */; };
 		BFD609CC58CD5BF4E00985FA2DC79DD4 /* Pods-RoAInAppPurchase_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC9BD860E354DA03231789E1EC476C8 /* Pods-RoAInAppPurchase_Tests-dummy.m */; };
+		C158FD7522EA13D000FD892C /* RoAProductsOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C158FD6B22EA13D000FD892C /* RoAProductsOwner.swift */; };
+		C158FD7622EA13D000FD892C /* RoAProductsOwnerProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = C158FD6C22EA13D000FD892C /* RoAProductsOwnerProtocols.swift */; };
+		C158FD7722EA13D000FD892C /* RoASubscribtionStatusVerificator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C158FD6E22EA13D000FD892C /* RoASubscribtionStatusVerificator.swift */; };
+		C158FD7822EA13D000FD892C /* RoASubscribtionStatusVerificatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C158FD6F22EA13D000FD892C /* RoASubscribtionStatusVerificatorProtocol.swift */; };
+		C158FD7A22EA13D000FD892C /* RoASubscribtionsStatement.swift in Sources */ = {isa = PBXBuildFile; fileRef = C158FD7222EA13D000FD892C /* RoASubscribtionsStatement.swift */; };
+		C158FD7B22EA13D000FD892C /* RoASubscribtionsStatementProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C158FD7322EA13D000FD892C /* RoASubscribtionsStatementProtocol.swift */; };
+		C158FD7C22EA13D000FD892C /* SubscribtionStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C158FD7422EA13D000FD892C /* SubscribtionStatus.swift */; };
+		C158FD8122EA13FB00FD892C /* RoAIAPManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C158FD7E22EA13FB00FD892C /* RoAIAPManagerProtocol.swift */; };
+		C158FD8222EA13FB00FD892C /* RoAIAPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C158FD7F22EA13FB00FD892C /* RoAIAPManager.swift */; };
+		C158FD8322EA13FB00FD892C /* RoAIAPManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C158FD8022EA13FB00FD892C /* RoAIAPManagerDelegate.swift */; };
 		CBD4B1B719859BB78273B6DA88F5F071 /* RoAInAppPurchase-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D5A557DD8F92444AA31570DE0031437 /* RoAInAppPurchase-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D6D26231A468F1EC53D6DA1FC38D8723 /* Pods-RoAInAppPurchase_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F09BFF36651614D11BC7EEDB2A684D32 /* Pods-RoAInAppPurchase_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
@@ -28,25 +37,34 @@
 
 /* Begin PBXFileReference section */
 		02332E4D9370CBE541974B46F880058C /* Pods-RoAInAppPurchase_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-RoAInAppPurchase_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		0A34D47F7ED9B906D73D9046AFB6B845 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		0A34D47F7ED9B906D73D9046AFB6B845 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		0D9CB31602CF76119F7698F85DF7091B /* RoAInAppPurchase-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "RoAInAppPurchase-dummy.m"; sourceTree = "<group>"; };
 		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		378B282230B42C5B7C552AC4FA1A4F58 /* Pods-RoAInAppPurchase_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-RoAInAppPurchase_Tests-Info.plist"; sourceTree = "<group>"; };
 		3D5A557DD8F92444AA31570DE0031437 /* RoAInAppPurchase-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RoAInAppPurchase-umbrella.h"; sourceTree = "<group>"; };
-		4EC3C0D6F13CB986FE894C7CCF74AA31 /* RoAInAppPurchase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = RoAInAppPurchase.framework; path = RoAInAppPurchase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		56F9A25EFC397790C8553E158FB76737 /* RoAInAppPurchase.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = RoAInAppPurchase.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		57D757FEB8399E5FA9221C060AD71645 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		4EC3C0D6F13CB986FE894C7CCF74AA31 /* RoAInAppPurchase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RoAInAppPurchase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		56F9A25EFC397790C8553E158FB76737 /* RoAInAppPurchase.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = RoAInAppPurchase.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		57D757FEB8399E5FA9221C060AD71645 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		57E98214A2381E1B423B4372B4A63958 /* RoAInAppPurchase-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "RoAInAppPurchase-Info.plist"; sourceTree = "<group>"; };
 		6C80296697B3E43F2F644EB6BF6DE98B /* Pods-RoAInAppPurchase_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-RoAInAppPurchase_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		72BE965192AC227C87BE9919FFA2C604 /* RoAInAppPurchase.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = RoAInAppPurchase.modulemap; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A459871AC410B267E4FE7C5A9EF6D195 /* RoAInAppPurchase-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RoAInAppPurchase-prefix.pch"; sourceTree = "<group>"; };
+		C158FD6B22EA13D000FD892C /* RoAProductsOwner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoAProductsOwner.swift; sourceTree = "<group>"; };
+		C158FD6C22EA13D000FD892C /* RoAProductsOwnerProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoAProductsOwnerProtocols.swift; sourceTree = "<group>"; };
+		C158FD6E22EA13D000FD892C /* RoASubscribtionStatusVerificator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoASubscribtionStatusVerificator.swift; sourceTree = "<group>"; };
+		C158FD6F22EA13D000FD892C /* RoASubscribtionStatusVerificatorProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoASubscribtionStatusVerificatorProtocol.swift; sourceTree = "<group>"; };
+		C158FD7222EA13D000FD892C /* RoASubscribtionsStatement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoASubscribtionsStatement.swift; sourceTree = "<group>"; };
+		C158FD7322EA13D000FD892C /* RoASubscribtionsStatementProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoASubscribtionsStatementProtocol.swift; sourceTree = "<group>"; };
+		C158FD7422EA13D000FD892C /* SubscribtionStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscribtionStatus.swift; sourceTree = "<group>"; };
+		C158FD7E22EA13FB00FD892C /* RoAIAPManagerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoAIAPManagerProtocol.swift; sourceTree = "<group>"; };
+		C158FD7F22EA13FB00FD892C /* RoAIAPManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoAIAPManager.swift; sourceTree = "<group>"; };
+		C158FD8022EA13FB00FD892C /* RoAIAPManagerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoAIAPManagerDelegate.swift; sourceTree = "<group>"; };
 		C254AB4DEB748CC004F872ACCE9EF850 /* Pods-RoAInAppPurchase_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RoAInAppPurchase_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		C857979C1D73CA0B96B7F8C8BB4FECAB /* Pods-RoAInAppPurchase_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RoAInAppPurchase_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		C89BF40E734AA661B3181D78744CE82D /* Pods-RoAInAppPurchase_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-RoAInAppPurchase_Tests-frameworks.sh"; sourceTree = "<group>"; };
 		D31095A66CDD464C9EFF432C447071CA /* Pods-RoAInAppPurchase_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-RoAInAppPurchase_Tests.modulemap"; sourceTree = "<group>"; };
-		E25DDA79C56A0DCB9E9448CCB5BCD814 /* Pods_RoAInAppPurchase_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_RoAInAppPurchase_Tests.framework; path = "Pods-RoAInAppPurchase_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E8CD51BB22804C085D6B529EF0E0D575 /* ReplaceMe.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReplaceMe.swift; path = RoAInAppPurchase/Classes/ReplaceMe.swift; sourceTree = "<group>"; };
+		E25DDA79C56A0DCB9E9448CCB5BCD814 /* Pods_RoAInAppPurchase_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RoAInAppPurchase_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEC9BD860E354DA03231789E1EC476C8 /* Pods-RoAInAppPurchase_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-RoAInAppPurchase_Tests-dummy.m"; sourceTree = "<group>"; };
 		F09BFF36651614D11BC7EEDB2A684D32 /* Pods-RoAInAppPurchase_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-RoAInAppPurchase_Tests-umbrella.h"; sourceTree = "<group>"; };
 		F27B45EE8950E74523CD7519D5014BE2 /* RoAInAppPurchase.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RoAInAppPurchase.xcconfig; sourceTree = "<group>"; };
@@ -75,7 +93,7 @@
 		09213F4CDC9DCEC3EE7D3B4F9A6CFB2C /* RoAInAppPurchase */ = {
 			isa = PBXGroup;
 			children = (
-				E8CD51BB22804C085D6B529EF0E0D575 /* ReplaceMe.swift */,
+				C158FD6922EA13D000FD892C /* Classes */,
 				5AD0E61890FDB3B162D56AB41DC00EBC /* Pod */,
 				D0C4FDBA37E2B509F698003CF98E7EBF /* Support Files */,
 			);
@@ -141,6 +159,56 @@
 				3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */,
 			);
 			name = iOS;
+			sourceTree = "<group>";
+		};
+		C158FD6922EA13D000FD892C /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				C158FD7D22EA13FB00FD892C /* RoAInAppManager */,
+				C158FD6A22EA13D000FD892C /* RoAProductsOwner */,
+				C158FD6D22EA13D000FD892C /* RoASubscribtionStatusVerificator */,
+				C158FD7122EA13D000FD892C /* RoASubscribtionsStatement */,
+				C158FD7422EA13D000FD892C /* SubscribtionStatus.swift */,
+			);
+			name = Classes;
+			path = RoAInAppPurchase/Classes;
+			sourceTree = "<group>";
+		};
+		C158FD6A22EA13D000FD892C /* RoAProductsOwner */ = {
+			isa = PBXGroup;
+			children = (
+				C158FD6B22EA13D000FD892C /* RoAProductsOwner.swift */,
+				C158FD6C22EA13D000FD892C /* RoAProductsOwnerProtocols.swift */,
+			);
+			path = RoAProductsOwner;
+			sourceTree = "<group>";
+		};
+		C158FD6D22EA13D000FD892C /* RoASubscribtionStatusVerificator */ = {
+			isa = PBXGroup;
+			children = (
+				C158FD6E22EA13D000FD892C /* RoASubscribtionStatusVerificator.swift */,
+				C158FD6F22EA13D000FD892C /* RoASubscribtionStatusVerificatorProtocol.swift */,
+			);
+			path = RoASubscribtionStatusVerificator;
+			sourceTree = "<group>";
+		};
+		C158FD7122EA13D000FD892C /* RoASubscribtionsStatement */ = {
+			isa = PBXGroup;
+			children = (
+				C158FD7222EA13D000FD892C /* RoASubscribtionsStatement.swift */,
+				C158FD7322EA13D000FD892C /* RoASubscribtionsStatementProtocol.swift */,
+			);
+			path = RoASubscribtionsStatement;
+			sourceTree = "<group>";
+		};
+		C158FD7D22EA13FB00FD892C /* RoAInAppManager */ = {
+			isa = PBXGroup;
+			children = (
+				C158FD7E22EA13FB00FD892C /* RoAIAPManagerProtocol.swift */,
+				C158FD7F22EA13FB00FD892C /* RoAIAPManager.swift */,
+				C158FD8022EA13FB00FD892C /* RoAIAPManagerDelegate.swift */,
+			);
+			path = RoAInAppManager;
 			sourceTree = "<group>";
 		};
 		CF1408CF629C7361332E53B88F7BD30C = {
@@ -243,6 +311,11 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1100;
 				LastUpgradeCheck = 1100;
+				TargetAttributes = {
+					FCB967AA4652EE73478EA0E63BA6BCA6 = {
+						LastSwiftMigration = 1030;
+					};
+				};
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -284,7 +357,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0DCFED4F089B284F5CDAF4AC99E50B57 /* ReplaceMe.swift in Sources */,
 				6B1E545904F85EBEE8FC484FCCE90F85 /* RoAInAppPurchase-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -293,7 +365,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C158FD7722EA13D000FD892C /* RoASubscribtionStatusVerificator.swift in Sources */,
+				C158FD7522EA13D000FD892C /* RoAProductsOwner.swift in Sources */,
 				BFD609CC58CD5BF4E00985FA2DC79DD4 /* Pods-RoAInAppPurchase_Tests-dummy.m in Sources */,
+				C158FD8122EA13FB00FD892C /* RoAIAPManagerProtocol.swift in Sources */,
+				C158FD7B22EA13D000FD892C /* RoASubscribtionsStatementProtocol.swift in Sources */,
+				C158FD7822EA13D000FD892C /* RoASubscribtionStatusVerificatorProtocol.swift in Sources */,
+				C158FD7622EA13D000FD892C /* RoAProductsOwnerProtocols.swift in Sources */,
+				C158FD8222EA13FB00FD892C /* RoAIAPManager.swift in Sources */,
+				C158FD7C22EA13D000FD892C /* SubscribtionStatus.swift in Sources */,
+				C158FD7A22EA13D000FD892C /* RoASubscribtionsStatement.swift in Sources */,
+				C158FD8322EA13FB00FD892C /* RoAIAPManagerDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,6 +427,7 @@
 			baseConfigurationReference = C254AB4DEB748CC004F872ACCE9EF850 /* Pods-RoAInAppPurchase_Tests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -367,6 +450,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -410,6 +495,7 @@
 			baseConfigurationReference = C857979C1D73CA0B96B7F8C8BB4FECAB /* Pods-RoAInAppPurchase_Tests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -432,6 +518,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -492,8 +579,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};

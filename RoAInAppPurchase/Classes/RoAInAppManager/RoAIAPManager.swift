@@ -10,7 +10,7 @@ import Foundation
 import StoreKit
 
 
-final class RoAIAPManager: NSObject, RoAIAPManagerProtocol {
+public final class RoAIAPManager: NSObject, RoAIAPManagerProtocol {
     
     weak var delegate: RoAIAPManagerDelegate?
     
