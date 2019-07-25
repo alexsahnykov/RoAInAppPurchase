@@ -1,0 +1,6 @@
+use_frameworks!
+target 'RoAInAppPurchase_Tests' do
+  pod 'RoAInAppPurchase', :path => '../'
+  
+  
+end
