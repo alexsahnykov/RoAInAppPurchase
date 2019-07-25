@@ -6,7 +6,7 @@
 //  Copyright © 2019 Александр Сахнюков. All rights reserved.
 //
 
-public protocol RoASubscribtionsStatementProtocol {
+protocol RoASubscribtionsStatementProtocol {
     
     func checkSubscribeStatusInApp(_ productIdentifire: String) -> SubscribtionStatus
     

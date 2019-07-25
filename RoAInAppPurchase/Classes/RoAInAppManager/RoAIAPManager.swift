@@ -53,7 +53,7 @@ public final class RoAIAPManager: NSObject, RoAIAPManagerProtocol {
 }
 
 extension RoAIAPManager: SKPaymentTransactionObserver {
-    func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
+    public func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
         for transaction in transactions {
             switch transaction.transactionState {
             case .deferred:
@@ -106,7 +106,7 @@ extension RoAIAPManager: SKPaymentTransactionObserver {
 
 
 extension RoAIAPManager: SKProductsRequestDelegate {
-    func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
+    public func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
         self.products = response.products
         products?.forEach { print("Got products: \($0.localizedTitle)")}
         guard response.invalidProductIdentifiers.isEmpty else {
@@ -114,7 +114,7 @@ extension RoAIAPManager: SKProductsRequestDelegate {
         }
     }
     
-    func requestDidFinish(_ request: SKRequest) {
+    public func requestDidFinish(_ request: SKRequest) {
         delegate?.productRequestDidFinished()
     }
 }

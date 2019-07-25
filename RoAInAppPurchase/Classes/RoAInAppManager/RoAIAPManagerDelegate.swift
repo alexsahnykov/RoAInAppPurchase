@@ -17,7 +17,7 @@ import StoreKit
  * Add action after purchase was failed.
  * Add action after purchase was restored */
 
-public protocol RoAIAPManagerDelegate: class {
+ protocol RoAIAPManagerDelegate: class {
     
     func productRequestDidFinished()
 

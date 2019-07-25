@@ -6,7 +6,7 @@
 //  Copyright © 2019 Александр Сахнюков. All rights reserved.
 //
 
-public protocol RoASubscribtionStatusVerificatorProtocol {
+ protocol RoASubscribtionStatusVerificatorProtocol {
     
     func getSubscribtionStatus(_ complition: @escaping(SubscribtionStatus, String?)->())
     

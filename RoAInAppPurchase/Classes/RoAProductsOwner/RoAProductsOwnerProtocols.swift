@@ -6,7 +6,7 @@
 //  Copyright © 2019 Александр Сахнюков. All rights reserved.
 //
 
-public protocol RoAProductsOwnerProtocol {
+ protocol RoAProductsOwnerProtocol {
     
     var products: Set<String> {get set}
     
@@ -15,7 +15,7 @@ public protocol RoAProductsOwnerProtocol {
     init(_ products: Set<String>)
 }
 
-public protocol RoASubscribtionProductsOwnerProtocol: RoAProductsOwnerProtocol {
+ protocol RoASubscribtionProductsOwnerProtocol: RoAProductsOwnerProtocol {
     
     var subscribtionChaker: RoASubscribtionStatusVerificatorProtocol? {get}
     var subscribtionStatment: RoASubscribtionsStatementProtocol? {get}

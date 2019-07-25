@@ -9,9 +9,6 @@
 import Foundation
 import StoreKit
 
-
-
-
 public class CustomStatusVerificator: RoASubscribtionStatusVerificatorProtocol {
 
     private var sharedSecret: String
