@@ -17,7 +17,6 @@
 
  protocol RoASubscribtionProductsOwnerProtocol: RoAProductsOwnerProtocol {
     
-    var subscribtionChaker: RoASubscribtionStatusVerificatorProtocol? {get}
     var subscribtionStatment: RoASubscribtionsStatementProtocol? {get}
     
 }

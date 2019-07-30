@@ -11,7 +11,6 @@ import Foundation
 public struct RoASubscribtionProductsOwner: RoASubscribtionProductsOwnerProtocol {
     
     var store: RoAIAPManager
-    var subscribtionChaker: RoASubscribtionStatusVerificatorProtocol?
     var subscribtionStatment: RoASubscribtionsStatementProtocol?
     var products: Set<String>
     

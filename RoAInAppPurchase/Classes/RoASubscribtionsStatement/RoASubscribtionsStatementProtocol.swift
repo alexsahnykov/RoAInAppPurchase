@@ -10,7 +10,7 @@ import Foundation
 
 public class RoASubscribtionStatement: RoASubscribtionsStatementProtocol {
     
-    func checkSubscribeStatusInApp(_ productIdentifire: String) -> SubscribtionStatus {
+    public static func checkSubscribeStatusInApp(_ productIdentifire: String) -> SubscribtionStatus {
         switch UserDefaults.standard.bool(forKey: productIdentifire) {
         case true:
             return .avalable
@@ -19,7 +19,7 @@ public class RoASubscribtionStatement: RoASubscribtionsStatementProtocol {
         }
     }
     
-    func saveSubscribeStatusInApp(_ productIdentifire: String) {
+    public func saveSubscribeStatusInApp(_ productIdentifire: String) {
         UserDefaults.standard.set(true, forKey: productIdentifire)
     }
     

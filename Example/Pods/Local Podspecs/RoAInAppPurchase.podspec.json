@@ -1,9 +1,14 @@
 {
   "name": "RoAInAppPurchase",
-  "version": "0.1.0",
-  "summary": "A short description of RoAInAppPurchase.",
+  "version": "1.0.0",
+  "summary": "Description.",
+  "swift_versions": "4.0",
+  "source": {
+    "git": "https://github.com/alexsahnykov/RoAInAppPurchase.git",
+    "tag": "1.0.0"
+  },
   "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/Alex Sahnykov/RoAInAppPurchase",
+  "homepage": "https://github.com/alexsahnykov/RoAInAppPurchase",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
@@ -11,12 +16,9 @@
   "authors": {
     "Alex Sahnykov": "alexsahnykov@gmail.com"
   },
-  "source": {
-    "git": "https://github.com/Alex Sahnykov/RoAInAppPurchase.git",
-    "tag": "0.1.0"
-  },
   "platforms": {
-    "ios": "8.0"
+    "ios": "10.0"
   },
-  "source_files": "RoAInAppPurchase/Classes/**/*"
+  "source_files": "RoAInAppPurchase/Classes/**/*",
+  "swift_version": "4.0"
 }

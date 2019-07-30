@@ -93,7 +93,7 @@ extension RoAIAPManager: SKPaymentTransactionObserver {
         paymentQueue.finishTransaction(transaction)
         self.delegate?.deferred(transaction: transaction)
     }
-
+    
     private func purchasing(transaction: SKPaymentTransaction) {
         self.delegate?.purchasing(transaction: transaction)
     }
@@ -110,7 +110,7 @@ extension RoAIAPManager: SKProductsRequestDelegate {
         self.products = response.products
         products?.forEach { print("Got products: \($0.localizedTitle)")}
         guard response.invalidProductIdentifiers.isEmpty else {
-          return  print("Invalid Product Identifiers: \(response.invalidProductIdentifiers)")
+            return  print("Invalid Product Identifiers: \(response.invalidProductIdentifiers)")
         }
     }
     

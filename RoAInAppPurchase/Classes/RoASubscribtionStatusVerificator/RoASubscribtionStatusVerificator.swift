@@ -55,7 +55,7 @@ public class CustomStatusVerificator: RoASubscribtionStatusVerificatorProtocol {
     }
     
     
-    func getSubscribtionStatus(_ complition: @escaping(SubscribtionStatus, String?)->()) {
+    public func getSubscribtionStatus(_ complition: @escaping(SubscribtionStatus, String?)->()) {
         let urlRequest = createRequestForValidation()
         guard let request = urlRequest else {return}
         URLSession.shared.dataTask(with: request)  { (data, response, error) in

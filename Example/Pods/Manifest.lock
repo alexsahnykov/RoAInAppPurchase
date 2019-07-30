@@ -1,5 +1,5 @@
 PODS:
-  - RoAInAppPurchase (0.1.0)
+  - RoAInAppPurchase (1.0.0)
 
 DEPENDENCIES:
   - RoAInAppPurchase (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  RoAInAppPurchase: 6dffa8b20b007f01fc09a8d68026e16e2f8ab50c
+  RoAInAppPurchase: 5855b075963d3b800309b5ee262fba47c0b79346
 
 PODFILE CHECKSUM: eeac7db35df459075b777e70576b5a3ed92de08e
 
