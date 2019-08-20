@@ -23,4 +23,6 @@ public class RoASubscribtionStatement: RoASubscribtionsStatementProtocol {
         UserDefaults.standard.set(true, forKey: productIdentifire)
     }
     
+    public init() {}
+    
 }

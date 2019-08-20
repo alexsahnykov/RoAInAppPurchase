@@ -95,7 +95,7 @@ public class RoACustomStatusVerificator: RoASubscribtionStatusVerificatorProtoco
         return (.unavalable, nil)
     }
     
-    init(_ secret: String) {
+   public init(_ secret: String) {
         self.sharedSecret = secret
     }
     
