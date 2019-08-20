@@ -9,7 +9,7 @@
 import Foundation
 import StoreKit
 
-public class CustomStatusVerificator: RoASubscribtionStatusVerificatorProtocol {
+public class RoACustomStatusVerificator: RoASubscribtionStatusVerificatorProtocol {
 
     private var sharedSecret: String
    
