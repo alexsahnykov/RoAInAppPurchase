@@ -8,13 +8,12 @@
 
 import Foundation
 
-public struct RoASubscribtionProductsOwner: RoASubscribtionProductsOwnerProtocol {
+public struct RoASubscribtionProductsOwner: RoAProductsOwnerProtocol {
     
-    var store: RoAIAPManager
-    var subscribtionStatment: RoASubscribtionsStatementProtocol?
-    var products: Set<String>
+    public var store: RoAIAPManager
+    public var products: Set<String>
     
-    init(_ products: Set<String>) {
+    public init(_ products: Set<String>) {
         let store = RoAIAPManager(products)
         self.store = store
         self.products = products
@@ -23,10 +22,10 @@ public struct RoASubscribtionProductsOwner: RoASubscribtionProductsOwnerProtocol
 
 public struct RoACunsumableProductsOwner: RoAProductsOwnerProtocol {
     
-    var store: RoAIAPManager
-    var products: Set<String>
+    public var store: RoAIAPManager
+    public var products: Set<String>
     
-    init(_ products: Set<String>) {
+    public init(_ products: Set<String>) {
         let store = RoAIAPManager(products)
         self.store = store
         self.products = products

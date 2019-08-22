@@ -6,7 +6,11 @@
 //  Copyright © 2019 Александр Сахнюков. All rights reserved.
 //
 
-public enum SubscribtionStatus {
+/// Status of subscribtions in app
+///
+/// - avalable: Subscribtion is avalable
+/// - unavalable: Subscribtion is unavalable
+public enum RoASubscribtionStatus {
     case avalable
     case unavalable
 }

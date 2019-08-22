@@ -20,7 +20,7 @@ import StoreKit
 public protocol RoAIAPManagerDelegate: class {
     
     func productRequestDidFinished()
-
+    
     /// Add action after purchase was deferred.
     ///
     /// - Parameter transaction: A currient transaction that was updated.

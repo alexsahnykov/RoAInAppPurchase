@@ -10,8 +10,12 @@ import Foundation
 
 public class RoASubscribtionStatement: RoASubscribtionsStatementProtocol {
     
-    public static func checkSubscribeStatusInApp(_ productIdentifire: String) -> SubscribtionStatus {
-        switch UserDefaults.standard.bool(forKey: productIdentifire) {
+    public static let shared = RoASubscribtionStatement()
+    
+    private let userDefaultsSubscribtionKey = "userDefaultsSubscribtionKey"
+    
+    public func checkSubscribeStatus() -> RoASubscribtionStatus {
+        switch UserDefaults.standard.bool(forKey: userDefaultsSubscribtionKey) {
         case true:
             return .avalable
         case false:
@@ -19,10 +23,15 @@ public class RoASubscribtionStatement: RoASubscribtionsStatementProtocol {
         }
     }
     
-    public func saveSubscribeStatusInApp(_ productIdentifire: String) {
-        UserDefaults.standard.set(true, forKey: productIdentifire)
+    public func setSubscribeStatus(_ isAvailable: RoASubscribtionStatus) {
+        switch isAvailable {
+        case .avalable:
+            UserDefaults.standard.set(true, forKey: userDefaultsSubscribtionKey)
+        case .unavalable:
+            UserDefaults.standard.set(false, forKey: userDefaultsSubscribtionKey)
+        }
     }
     
-    public init() {}
+    private init() {}
     
 }

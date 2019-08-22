@@ -15,7 +15,7 @@ public final class RoAIAPManager: NSObject, RoAIAPManagerProtocol {
     weak public var delegate: RoAIAPManagerDelegate?
     
     private(set) public var products: [SKProduct]?
-    public var productsIDs: Set<String>
+    private var productsIDs: Set<String>
     
     private var paymentQueue = SKPaymentQueue.default()
     

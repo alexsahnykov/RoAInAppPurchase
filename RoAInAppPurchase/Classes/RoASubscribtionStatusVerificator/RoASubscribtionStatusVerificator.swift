@@ -10,16 +10,16 @@ import Foundation
 import StoreKit
 
 public class RoACustomStatusVerificator: RoASubscribtionStatusVerificatorProtocol {
-
+    
     private var sharedSecret: String
-   
+    
     private var dateFormater: DateFormatter = {
         let df = DateFormatter()
         df.dateFormat = "yyyy-MM-dd HH:mm:ss VV"
         df.timeZone = TimeZone(secondsFromGMT: 0)
         return df
     }()
- 
+    
     private enum VerifyReceiptURL: String {
         case debug = "https://sandbox.itunes.apple.com/verifyReceipt"
         case production = "https://buy.itunes.apple.com/verifyReceipt"
@@ -55,14 +55,14 @@ public class RoACustomStatusVerificator: RoASubscribtionStatusVerificatorProtoco
     }
     
     
-    public func getSubscribtionStatus(_ complition: @escaping(SubscribtionStatus, String?)->()) {
+    public func getSubscribtionStatus(_ complition: @escaping(RoASubscribtionStatus, _ latestProduct: String?) -> Void) {
         let urlRequest = createRequestForValidation()
         guard let request = urlRequest else {return}
         URLSession.shared.dataTask(with: request)  { (data, response, error) in
             DispatchQueue.main.async {
                 if let data = data {
                     if let json = try? JSONSerialization.jsonObject(with: data, options: .allowFragments){
-                      let subStatus = self.parseReceipt(json as! Dictionary<String, Any>)
+                        let subStatus = self.parseReceipt(json as! Dictionary<String, Any>)
                         complition(subStatus.0, subStatus.1)
                         return
                     }
@@ -73,7 +73,7 @@ public class RoACustomStatusVerificator: RoASubscribtionStatusVerificatorProtoco
             }.resume()
     }
     
-    private func parseReceipt(_ json : Dictionary<String, Any>) -> (SubscribtionStatus, String?) {
+    private func parseReceipt(_ json : Dictionary<String, Any>) -> (RoASubscribtionStatus, String?) {
         guard let receipts_array = json["latest_receipt_info"] as? [Dictionary<String, Any>] else {
             print("No avalable receipts")
             return (.unavalable, nil)
@@ -95,26 +95,9 @@ public class RoACustomStatusVerificator: RoASubscribtionStatusVerificatorProtoco
         return (.unavalable, nil)
     }
     
-   public init(_ secret: String) {
+    public init(_ secret: String) {
         self.sharedSecret = secret
     }
     
     
-}
-
-extension Date {
-    static func getTodayRounded() -> Date {
-        let now = Date()
-        
-        let gregorian = Calendar(identifier: .gregorian)
-        
-        let dateComponents = gregorian.dateComponents([.year, .month, .day, .hour, .minute, .second], from: now)
-        let dateWithSelectedComponents = gregorian.date(from: dateComponents)!
-        
-        return dateWithSelectedComponents
-    }
-    
-    func toISOString(formatter: DateFormatter) -> String {
-        return formatter.string(from: self)
-    }
 }

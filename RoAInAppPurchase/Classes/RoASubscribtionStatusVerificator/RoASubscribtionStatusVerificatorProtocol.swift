@@ -7,7 +7,7 @@
 //
 
 public protocol RoASubscribtionStatusVerificatorProtocol {
-    
-    func getSubscribtionStatus(_ complition: @escaping(SubscribtionStatus, String?)->())
+
+    func getSubscribtionStatus(_ complition: @escaping(RoASubscribtionStatus, _ latestProduct: String?) -> Void)
     
 }
