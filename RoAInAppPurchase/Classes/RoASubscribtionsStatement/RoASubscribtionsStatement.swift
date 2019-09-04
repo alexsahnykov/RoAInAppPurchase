@@ -8,9 +8,9 @@
 
 public protocol RoASubscribtionsStatementProtocol {
     
-    func checkSubscribeStatus() -> RoASubscribtionStatus
+   static func checkSubscribeStatus() -> RoASubscribtionStatus
     
-    func setSubscribeStatus(_ isAvailable: RoASubscribtionStatus)
+   static func saveSubscribeStatusInApp(_ isAvailable: RoASubscribtionStatus)
     
 }
 

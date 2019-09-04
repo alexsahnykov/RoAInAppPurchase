@@ -8,9 +8,10 @@
 
 import Foundation
 
-public struct RoASubscribtionProductsOwner: RoAProductsOwnerProtocol {
+public struct RoASubscribtionProductsOwner: RoASubscribtionProductsOwnerProtocol {
     
     public var store: RoAIAPManager
+    public var subscribtionStatment: RoASubscribtionsStatementProtocol?
     public var products: Set<String>
     
     public init(_ products: Set<String>) {
@@ -31,6 +32,9 @@ public struct RoACunsumableProductsOwner: RoAProductsOwnerProtocol {
         self.products = products
     }
 }
+
+
+
 
 
 

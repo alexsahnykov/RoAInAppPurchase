@@ -6,7 +6,6 @@
 //  Copyright © 2019 Александр Сахнюков. All rights reserved.
 //
 
-import Foundation
 import StoreKit
 
 
@@ -15,7 +14,8 @@ public final class RoAIAPManager: NSObject, RoAIAPManagerProtocol {
     weak public var delegate: RoAIAPManagerDelegate?
     
     private(set) public var products: [SKProduct]?
-    private var productsIDs: Set<String>
+    
+    public var productsIDs: Set<String>
     
     private var paymentQueue = SKPaymentQueue.default()
     
@@ -29,7 +29,7 @@ public final class RoAIAPManager: NSObject, RoAIAPManagerProtocol {
         return
     }
     
-    public func getProducts() {
+    public func getProductsFromServer() {
         let productRequest = SKProductsRequest(productIdentifiers: productsIDs)
         productRequest.delegate = self
         productRequest.start()
@@ -80,27 +80,37 @@ extension RoAIAPManager: SKPaymentTransactionObserver {
                 print("Ошибка транзакции  \(transaction.error!.localizedDescription)")
             }
         }
+        let getProduct = products?.filter {$0.productIdentifier == transaction.transactionIdentifier}.first
+        guard let product = getProduct else {return}
         paymentQueue.finishTransaction(transaction)
-        self.delegate?.failed(transaction: transaction)
+        self.delegate?.failed(transaction: transaction, product: product)
     }
     
     private func completed(transaction: SKPaymentTransaction) {
+        let getProduct = products?.filter {$0.productIdentifier == transaction.transactionIdentifier}.first
+        guard let product = getProduct else {return}
         paymentQueue.finishTransaction(transaction)
-        self.delegate?.purchased(transaction: transaction)
+        self.delegate?.purchased(transaction: transaction, product: product)
     }
     
     private func deffered(transaction: SKPaymentTransaction) {
+        let getProduct = products?.filter {$0.productIdentifier == transaction.transactionIdentifier}.first
+        guard let product = getProduct else {return}
         paymentQueue.finishTransaction(transaction)
-        self.delegate?.deferred(transaction: transaction)
+        self.delegate?.deferred(transaction: transaction, product: product)
     }
     
     private func purchasing(transaction: SKPaymentTransaction) {
-        self.delegate?.purchasing(transaction: transaction)
+        let getProduct = products?.filter {$0.productIdentifier == transaction.transactionIdentifier}.first
+        guard let product = getProduct else {return}
+        self.delegate?.purchasing(transaction: transaction, product: product)
     }
     
     private func restored(transaction: SKPaymentTransaction) {
+        let getProduct = products?.filter {$0.productIdentifier == transaction.transactionIdentifier}.first
+        guard let product = getProduct else {return}
         paymentQueue.finishTransaction(transaction)
-        self.delegate?.restored(transaction: transaction)
+        self.delegate?.restored(transaction: transaction, product: product)
     }
 }
 

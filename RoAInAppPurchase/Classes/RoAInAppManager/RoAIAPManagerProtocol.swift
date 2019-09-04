@@ -30,7 +30,7 @@ public protocol RoAIAPManagerProtocol: SKProductsRequestDelegate, SKPaymentTrans
     ///
     /// - Parameter products: Set of products identifiers.
     
-    func getProducts()
+    func getProductsFromServer()
     
     /// The methods Adds a payment request to the queue.
     ///

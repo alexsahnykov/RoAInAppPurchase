@@ -25,31 +25,31 @@ public protocol RoAIAPManagerDelegate: class {
     ///
     /// - Parameter transaction: A currient transaction that was updated.
     
-    func deferred(transaction: SKPaymentTransaction)
+    func deferred(transaction: SKPaymentTransaction, product: SKProduct)
     
     /// Add action after purchase was purchasing.
     ///
     /// - Parameter transaction: A currient transaction that was updated.
     
-    func purchasing(transaction: SKPaymentTransaction)
+    func purchasing(transaction: SKPaymentTransaction, product: SKProduct)
     
     /// Add action after purchase was purchased.
     ///
     /// - Parameter transaction: A currient transaction that was updated.
     
-    func purchased(transaction: SKPaymentTransaction)
+    func purchased(transaction: SKPaymentTransaction, product: SKProduct)
     
     /// Add action after purchase was purchasing.
     ///
     /// - Parameter transaction: A currient transaction that was updated.
     
-    func failed(transaction: SKPaymentTransaction)
+    func failed(transaction: SKPaymentTransaction, product: SKProduct)
     
     /// Add action after purchase was failed.
     ///
     /// - Parameter transaction: A currient transaction that was updated.
     
-    func restored(transaction: SKPaymentTransaction)
+    func restored(transaction: SKPaymentTransaction, product: SKProduct)
     
     /// Add action after purchase was restored.
     ///
@@ -59,23 +59,23 @@ public protocol RoAIAPManagerDelegate: class {
 
 extension RoAIAPManagerDelegate {
     
-    func deferred(transaction: SKPaymentTransaction) {
+    func deferred(transaction: SKPaymentTransaction, product: SKProduct) {
         return
     }
     
-    func purchasing(transaction: SKPaymentTransaction) {
+    func purchasing(transaction: SKPaymentTransaction, product: SKProduct) {
         return
     }
     
-    func purchased(transaction: SKPaymentTransaction) {
+    func purchased(transaction: SKPaymentTransaction, product: SKProduct) {
         return
     }
     
-    func failed(transaction: SKPaymentTransaction) {
+    func failed(transaction: SKPaymentTransaction, product: SKProduct) {
         return
     }
     
-    func restored(transaction: SKPaymentTransaction) {
+    func restored(transaction: SKPaymentTransaction, product: SKProduct) {
         return
     }
     
