@@ -36,7 +36,7 @@ public class RoACustomStatusVerificator: RoASubscribtionStatusVerificatorProtoco
     
     private func createRequestForValidation() -> URLRequest? {
         guard let receiptUrl = Bundle.main.appStoreReceiptURL else {
-            print("No avalable receipts")
+            testingPrint("No avalable receipts")
             return nil
         }
         #if DEBUG
@@ -67,7 +67,7 @@ public class RoACustomStatusVerificator: RoASubscribtionStatusVerificatorProtoco
                         return
                     }
                 } else {
-                    print("error validating receipt: \(error?.localizedDescription ?? "")")
+                    testingPrint("error validating receipt: \(error?.localizedDescription ?? "")")
                 }
             }
             }.resume()
@@ -75,7 +75,7 @@ public class RoACustomStatusVerificator: RoASubscribtionStatusVerificatorProtoco
     
     private func parseReceipt(_ json : Dictionary<String, Any>) -> (RoASubscribtionStatus, String?) {
         guard let receipts_array = json["latest_receipt_info"] as? [Dictionary<String, Any>] else {
-            print("No avalable receipts")
+            testingPrint("No avalable receipts")
             return (.unavalable, nil)
         }
         for receipt in receipts_array {
@@ -84,10 +84,10 @@ public class RoACustomStatusVerificator: RoASubscribtionStatusVerificatorProtoco
                 let startedDate = dateFormater.date(from: receipt["original_purchase_date"] as! String) {
                 let currientDate = Date.getTodayRounded()
                 if exspireDate > currientDate {
-                    print("Subscribtion is avalable, started at \(startedDate),  today \(currientDate) and expired at \(exspireDate)")
+                    testingPrint("Subscribtion is avalable, started at \(startedDate),  today \(currientDate) and expired at \(exspireDate)")
                     return (.avalable, productID)
                 } else {
-                    print("Subscribtion is unavalable, started at \(startedDate), today \(currientDate) and expired at \(exspireDate)")
+                    testingPrint("Subscribtion is unavalable, started at \(startedDate), today \(currientDate) and expired at \(exspireDate)")
                     return (.unavalable, productID)
                 }
             }
