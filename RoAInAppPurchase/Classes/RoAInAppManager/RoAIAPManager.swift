@@ -11,11 +11,19 @@ import StoreKit
 
 public final class RoAIAPManager: NSObject, RoAIAPManagerProtocol {
     
+    static let shared = RoAIAPManager()
+    
+    private override init() {}
+    
     weak public var delegate: RoAIAPManagerDelegate?
+    
+    public var productsStatment: RoASubscribtionsStatementProtocol?
+    
+    public var productsVerificator: RoAProductsVerificatorProtocol?
     
     private(set) public var products: [SKProduct]?
     
-    public var productsIDs: Set<String>
+    public var productsIDs: Set<String>?
     
     private var paymentQueue = SKPaymentQueue.default()
     
@@ -30,6 +38,7 @@ public final class RoAIAPManager: NSObject, RoAIAPManagerProtocol {
     }
     
     public func getProductsFromServer() {
+        guard let productsIDs = productsIDs else {return}
         let productRequest = SKProductsRequest(productIdentifiers: productsIDs)
         productRequest.delegate = self
         productRequest.start()
@@ -46,10 +55,7 @@ public final class RoAIAPManager: NSObject, RoAIAPManagerProtocol {
         paymentQueue.restoreCompletedTransactions()
     }
     
-    init(_ productsIDS: Set<String>) {
-        self.productsIDs = productsIDS
-        super.init()
-    }
+
     
 }
 

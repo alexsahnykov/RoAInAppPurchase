@@ -10,6 +10,7 @@
 ///
 /// - avalable: Subscribtion is avalable
 /// - unavalable: Subscribtion is unavalable
+
 public enum RoASubscribtionStatus {
     case avalable
     case unavalable

@@ -6,8 +6,9 @@
 //  Copyright © 2019 Александр Сахнюков. All rights reserved.
 //
 
-public protocol RoASubscribtionStatusVerificatorProtocol {
+public protocol RoAProductsVerificatorProtocol {
 
     func getSubscribtionStatus(_ complition: @escaping(RoASubscribtionStatus, String?) -> Void)
     
+    func getNonConsumableProductStatus(productID: String, _ complition: @escaping(RoASubscribtionStatus, _ latestProduct: String?) -> Void)
 }
