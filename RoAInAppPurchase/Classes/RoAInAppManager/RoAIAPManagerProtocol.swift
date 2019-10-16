@@ -16,6 +16,14 @@ public protocol RoAIAPManagerProtocol: SKProductsRequestDelegate, SKPaymentTrans
     
     /// List of in-app products from Apple server
     
+    /// Object that controls the status of subscriptions
+    
+     var productsStatment: RoASubscribtionsStatementProtocol? { get }
+    
+    /// Object that verificate  the status of subscriptions
+    
+    var productsVerificator: RoAProductsVerificatorProtocol? { get }
+    
     var products: [SKProduct]? {get}
     
     /// Check is Apple purchase server avalable

@@ -9,46 +9,56 @@
 import StoreKit
 
 
-public final class RoAIAPManager: NSObject, RoAIAPManagerProtocol {
+public final class RoAIAPManager: NSObject {
+    
+    static let shared = RoAIAPManager()
+    
+    private override init() {}
     
     weak public var delegate: RoAIAPManagerDelegate?
     
+    public var productsStatment: RoASubscribtionsStatementProtocol?
+    
+    public var productsVerificator: RoAProductsVerificatorProtocol?
+    
     private(set) public var products: [SKProduct]?
     
-    public var productsIDs: Set<String>
+    public var productsIDs: Set<String>?
     
     private var paymentQueue = SKPaymentQueue.default()
-    
-    public func isIAPServrAvalable (callback: @escaping(Bool)->()) {
-        if SKPaymentQueue.canMakePayments() {
-            SKPaymentQueue.default().add(self)
-            callback(true)
-            return
-        }
-        callback(false)
-        return
-    }
-    
-    public func getProductsFromServer() {
-        let productRequest = SKProductsRequest(productIdentifiers: productsIDs)
-        productRequest.delegate = self
-        productRequest.start()
-    }
-    
-    public func purchased(_ productWithidentifier: String) {
-        guard let product = products?.filter({ $0.productIdentifier == productWithidentifier }).first else {return}
-        let payment = SKPayment(product: product)
-        paymentQueue.add(payment)
-    }
-    
-    public func restoreProducts() {
-        paymentQueue.restoreCompletedTransactions()
-    }
-    
-    init(_ productsIDS: Set<String>) {
-        self.productsIDs = productsIDS
-        super.init()
-    }
+
+}
+
+extension RoAIAPManager: RoAIAPManagerProtocol {
+   
+        public func isIAPServrAvalable (callback: @escaping(Bool)->()) {
+           if SKPaymentQueue.canMakePayments() {
+               SKPaymentQueue.default().add(self)
+               callback(true)
+               return
+           }
+           callback(false)
+           return
+       }
+       
+       public func getProductsFromServer() {
+           guard let productsIDs = productsIDs else {return}
+           let productRequest = SKProductsRequest(productIdentifiers: productsIDs)
+           productRequest.delegate = self
+           productRequest.start()
+       }
+       
+       public func purchased(_ productWithidentifier: String) {
+           guard let product = products?.filter({ $0.productIdentifier == productWithidentifier }).first else {return}
+           let payment = SKPayment(product: product)
+           paymentQueue.add(payment)
+           testingPrint("Add product in paymentQueue with id: \(payment.productIdentifier)")
+        
+       }
+       
+       public func restoreProducts() {
+           paymentQueue.restoreCompletedTransactions()
+       }
     
 }
 
@@ -65,9 +75,7 @@ extension RoAIAPManager: SKPaymentTransactionObserver {
             case .purchased:
                 completed(transaction: transaction)
             case .restored:
-                if transaction == transactions.last {
                     restored(transaction: transaction)
-                }
             @unknown default:
                 fatalError()
             }
@@ -77,7 +85,7 @@ extension RoAIAPManager: SKPaymentTransactionObserver {
     private func failed(transaction: SKPaymentTransaction) {
         if let transactionError = transaction.error as NSError? {
             if transactionError.code != SKError.paymentCancelled.rawValue {
-                print("Ошибка транзакции  \(transaction.error!.localizedDescription)")
+                testingPrint("Ошибка транзакции  \(transaction.error!.localizedDescription)")
             }
         }
         let getProduct = products?.filter {$0.productIdentifier == transaction.transactionIdentifier}.first
@@ -89,8 +97,11 @@ extension RoAIAPManager: SKPaymentTransactionObserver {
     private func completed(transaction: SKPaymentTransaction) {
         let getProduct = products?.filter {$0.productIdentifier == transaction.transactionIdentifier}.first
         guard let product = getProduct else {return}
+//            if #available(iOS 11.2, *) {
+//            print(product.subscriptionPeriod)}
         paymentQueue.finishTransaction(transaction)
         self.delegate?.purchased(transaction: transaction, product: product)
+        testingPrint("Transaction completed")
     }
     
     private func deffered(transaction: SKPaymentTransaction) {
@@ -98,19 +109,22 @@ extension RoAIAPManager: SKPaymentTransactionObserver {
         guard let product = getProduct else {return}
         paymentQueue.finishTransaction(transaction)
         self.delegate?.deferred(transaction: transaction, product: product)
+        testingPrint("Transaction deffered")
     }
     
     private func purchasing(transaction: SKPaymentTransaction) {
         let getProduct = products?.filter {$0.productIdentifier == transaction.transactionIdentifier}.first
         guard let product = getProduct else {return}
         self.delegate?.purchasing(transaction: transaction, product: product)
+        testingPrint("Transaction purchasing")
     }
     
     private func restored(transaction: SKPaymentTransaction) {
+        SKPaymentQueue.default().restoreCompletedTransactions()
         let getProduct = products?.filter {$0.productIdentifier == transaction.transactionIdentifier}.first
         guard let product = getProduct else {return}
-        paymentQueue.finishTransaction(transaction)
         self.delegate?.restored(transaction: transaction, product: product)
+        testingPrint("Products restored")
     }
 }
 
@@ -118,9 +132,9 @@ extension RoAIAPManager: SKPaymentTransactionObserver {
 extension RoAIAPManager: SKProductsRequestDelegate {
     public func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
         self.products = response.products
-        products?.forEach { print("Got products: \($0.localizedTitle)")}
+        products?.forEach { testingPrint("Got products: \($0.localizedTitle)")}
         guard response.invalidProductIdentifiers.isEmpty else {
-            return  print("Invalid Product Identifiers: \(response.invalidProductIdentifiers)")
+            return  testingPrint("Invalid Product Identifiers: \(response.invalidProductIdentifiers)")
         }
     }
     
@@ -129,3 +143,14 @@ extension RoAIAPManager: SKProductsRequestDelegate {
     }
 }
 
+extension SKProduct {
+  
+    /// - returns: The cost of the product formatted in the local currency.
+    
+    var regularPrice: String? {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.locale = self.priceLocale
+        return formatter.string(from: self.price)
+    }
+}
