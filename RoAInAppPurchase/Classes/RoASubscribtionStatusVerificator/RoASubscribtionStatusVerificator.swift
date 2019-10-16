@@ -9,7 +9,7 @@
 import Foundation
 import StoreKit
 
-public class RoACustomStatusVerificator: RoASubscribtionStatusVerificatorProtocol {
+public class RoACustomStatusVerificator: RoAProductsVerificatorProtocol {
     
     private var sharedSecret: String
     
@@ -36,7 +36,7 @@ public class RoACustomStatusVerificator: RoASubscribtionStatusVerificatorProtoco
     
     private func createRequestForValidation() -> URLRequest? {
         guard let receiptUrl = Bundle.main.appStoreReceiptURL else {
-            print("No avalable receipts")
+            testingPrint("No avalable receipts")
             return nil
         }
         #if DEBUG
@@ -62,20 +62,38 @@ public class RoACustomStatusVerificator: RoASubscribtionStatusVerificatorProtoco
             DispatchQueue.main.async {
                 if let data = data {
                     if let json = try? JSONSerialization.jsonObject(with: data, options: .allowFragments){
-                        let subStatus = self.parseReceipt(json as! Dictionary<String, Any>)
+                        let subStatus = self.parseReceiptForSubscribtion(json as! Dictionary<String, Any>)
                         complition(subStatus.0, subStatus.1)
                         return
                     }
                 } else {
-                    print("error validating receipt: \(error?.localizedDescription ?? "")")
+                    testingPrint("error validating receipt: \(error?.localizedDescription ?? "Unexpected error")")
                 }
             }
             }.resume()
     }
     
-    private func parseReceipt(_ json : Dictionary<String, Any>) -> (RoASubscribtionStatus, String?) {
+    public func getNonConsumableProductStatus(productID: String, _ complition: @escaping(RoASubscribtionStatus, _ latestProduct: String?) -> Void) {
+        let urlRequest = createRequestForValidation()
+        guard let request = urlRequest else {return}
+        URLSession.shared.dataTask(with: request)  { (data, response, error) in
+            DispatchQueue.main.async {
+                if let data = data {
+                    if let json = try? JSONSerialization.jsonObject(with: data, options: .allowFragments){
+                        let subStatus = self.parseReceiptForNonConsumableProduct(json as! Dictionary<String, Any>, productID: productID)
+                        complition(subStatus.0, subStatus.1)
+                        return
+                    }
+                } else {
+                    testingPrint("error validating receipt: \(error?.localizedDescription ?? "")")
+                }
+            }
+            }.resume()
+    }
+    
+    private func parseReceiptForSubscribtion(_ json : Dictionary<String, Any>) -> (RoASubscribtionStatus, String?) {
         guard let receipts_array = json["latest_receipt_info"] as? [Dictionary<String, Any>] else {
-            print("No avalable receipts")
+            testingPrint("No avalable subscribtion receipt")
             return (.unavalable, nil)
         }
         for receipt in receipts_array {
@@ -84,10 +102,10 @@ public class RoACustomStatusVerificator: RoASubscribtionStatusVerificatorProtoco
                 let startedDate = dateFormater.date(from: receipt["original_purchase_date"] as! String) {
                 let currientDate = Date.getTodayRounded()
                 if exspireDate > currientDate {
-                    print("Subscribtion is avalable, started at \(startedDate),  today \(currientDate) and expired at \(exspireDate)")
+                    testingPrint("Subscribtion is avalable, started at \(startedDate),  today \(currientDate) and expired at \(exspireDate)")
                     return (.avalable, productID)
                 } else {
-                    print("Subscribtion is unavalable, started at \(startedDate), today \(currientDate) and expired at \(exspireDate)")
+                    testingPrint("Subscribtion is unavalable, started at \(startedDate), today \(currientDate) and expired at \(exspireDate)")
                     return (.unavalable, productID)
                 }
             }
@@ -95,9 +113,26 @@ public class RoACustomStatusVerificator: RoASubscribtionStatusVerificatorProtoco
         return (.unavalable, nil)
     }
     
-    public init(_ secret: String) {
-        self.sharedSecret = secret
+    private func parseReceiptForNonConsumableProduct(_ json : Dictionary<String, Any>, productID: String) -> (RoASubscribtionStatus, String?) {
+        guard let receipts_array = json["latest_receipt_info"] as? [Dictionary<String, Any>] else {
+            testingPrint("No avalable products receipt")
+            return (.unavalable, nil)
+        }
+        for receipt in receipts_array {
+            let productIDInReceipt = receipt["product_id"] as! String
+            guard productID == productIDInReceipt else {
+                return (.unavalable, productID)
+            }
+            return (.avalable, productID)
+        }
+             return (.unavalable, nil)
     }
-    
-    
+        
+        
+        
+        public init(_ secret: String) {
+            self.sharedSecret = secret
+        }
+        
+        
 }
