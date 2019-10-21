@@ -154,3 +154,9 @@ extension SKProduct {
         return formatter.string(from: self.price)
     }
 }
+
+public func testingPrint(_ object: Any) {
+    #if DEBUG
+    print("[RoAInAppPurchase] + \(object)")
+    #endif
+}

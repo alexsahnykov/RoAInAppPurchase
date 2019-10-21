@@ -16,10 +16,7 @@
 		B09E29D77125997AD547DA19C998B618 /* RoASubscribtionsStatement.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BD74B7C55E7AC4DEFE6A8A4D710CCF /* RoASubscribtionsStatement.swift */; };
 		B247D905513366B9B33FEBC26C0216D4 /* RoAIAPManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECB4A440BF2A3B10638964AA6BE75A7 /* RoAIAPManagerProtocol.swift */; };
 		BFD609CC58CD5BF4E00985FA2DC79DD4 /* Pods-RoAInAppPurchase_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC9BD860E354DA03231789E1EC476C8 /* Pods-RoAInAppPurchase_Tests-dummy.m */; };
-		C18263052355DB4D00F60B9F /* Debugging.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18263042355DB4D00F60B9F /* Debugging.swift */; };
-		C18263062355DB8200F60B9F /* Debugging.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18263042355DB4D00F60B9F /* Debugging.swift */; };
-		C186BDB1230DA0AC00BCB395 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = C186BDB0230DA0AC00BCB395 /* Date.swift */; };
-		C186BDB2230DA11700BCB395 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = C186BDB0230DA0AC00BCB395 /* Date.swift */; };
+		C18263062355DB8200F60B9F /* RoADebug.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18263042355DB4D00F60B9F /* RoADebug.swift */; };
 		C492A6D2E4E176D49C3E7410E251CF08 /* RoASubscribtionStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0EC20912374075D607D45FC020004A /* RoASubscribtionStatus.swift */; };
 		C6AF24F668C674C84B73E5DC203F0E1C /* RoASubscribtionsStatementProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A81E066E4C1283EA2FEF899A71B4C7 /* RoASubscribtionsStatementProtocol.swift */; };
 		D1ECD8AFD51623B5033170EFA6AE9D5C /* RoASubscribtionStatusVerificator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E649F9A44512B94D1E922CEA5561C0 /* RoASubscribtionStatusVerificator.swift */; };
@@ -55,8 +52,7 @@
 		AB0062B02E09DB7F3712D79C08943768 /* RoAInAppPurchase-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "RoAInAppPurchase-dummy.m"; sourceTree = "<group>"; };
 		B106AFC51D84E542BA1C1D339915079D /* RoAInAppPurchase.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = RoAInAppPurchase.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		BECB4A440BF2A3B10638964AA6BE75A7 /* RoAIAPManagerProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RoAIAPManagerProtocol.swift; sourceTree = "<group>"; };
-		C18263042355DB4D00F60B9F /* Debugging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debugging.swift; sourceTree = "<group>"; };
-		C186BDB0230DA0AC00BCB395 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		C18263042355DB4D00F60B9F /* RoADebug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoADebug.swift; sourceTree = "<group>"; };
 		C254AB4DEB748CC004F872ACCE9EF850 /* Pods-RoAInAppPurchase_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RoAInAppPurchase_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		C6BD74B7C55E7AC4DEFE6A8A4D710CCF /* RoASubscribtionsStatement.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RoASubscribtionsStatement.swift; sourceTree = "<group>"; };
 		C71E29459007191D78B70829DC37B080 /* RoAIAPManagerDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RoAIAPManagerDelegate.swift; sourceTree = "<group>"; };
@@ -170,8 +166,6 @@
 		C186BDAF230DA09C00BCB395 /* Extentions */ = {
 			isa = PBXGroup;
 			children = (
-				C186BDB0230DA0AC00BCB395 /* Date.swift */,
-				C18263042355DB4D00F60B9F /* Debugging.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -191,6 +185,7 @@
 			children = (
 				F5E649F9A44512B94D1E922CEA5561C0 /* RoASubscribtionStatusVerificator.swift */,
 				604DC2B5ED28CB2F24ADF1176AB696B6 /* RoAProductsVerificatorProtocol.swift */,
+				C18263042355DB4D00F60B9F /* RoADebug.swift */,
 			);
 			name = RoASubscribtionStatusVerificator;
 			path = RoAInAppPurchase/Classes/RoASubscribtionStatusVerificator;
@@ -358,8 +353,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFD609CC58CD5BF4E00985FA2DC79DD4 /* Pods-RoAInAppPurchase_Tests-dummy.m in Sources */,
-				C18263052355DB4D00F60B9F /* Debugging.swift in Sources */,
-				C186BDB1230DA0AC00BCB395 /* Date.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,8 +365,7 @@
 				B247D905513366B9B33FEBC26C0216D4 /* RoAIAPManagerProtocol.swift in Sources */,
 				04A9FB96D4CAA1BE901E9C5A0C0C520C /* RoAInAppPurchase-dummy.m in Sources */,
 				B09E29D77125997AD547DA19C998B618 /* RoASubscribtionsStatement.swift in Sources */,
-				C18263062355DB8200F60B9F /* Debugging.swift in Sources */,
-				C186BDB2230DA11700BCB395 /* Date.swift in Sources */,
+				C18263062355DB8200F60B9F /* RoADebug.swift in Sources */,
 				C6AF24F668C674C84B73E5DC203F0E1C /* RoASubscribtionsStatementProtocol.swift in Sources */,
 				D1ECD8AFD51623B5033170EFA6AE9D5C /* RoASubscribtionStatusVerificator.swift in Sources */,
 				E1029E06E0AC53B677C9C70310748026 /* RoAProductsVerificatorProtocol.swift in Sources */,
