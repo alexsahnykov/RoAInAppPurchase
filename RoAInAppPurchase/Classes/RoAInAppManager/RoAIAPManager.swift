@@ -11,7 +11,7 @@ import StoreKit
 
 public final class RoAIAPManager: NSObject {
     
-    static let shared = RoAIAPManager()
+    static public let shared = RoAIAPManager()
     
     private override init() {}
     
@@ -49,16 +49,22 @@ extension RoAIAPManager: RoAIAPManagerProtocol {
        }
        
        public func purchased(_ productWithidentifier: String) {
-           guard let product = products?.filter({ $0.productIdentifier == productWithidentifier }).first else {return}
-           let payment = SKPayment(product: product)
-           paymentQueue.add(payment)
-           testingPrint("Add product in paymentQueue with id: \(payment.productIdentifier)")
-        
-       }
-       
-       public func restoreProducts() {
-           paymentQueue.restoreCompletedTransactions()
-       }
+        guard let product = products?.filter({ $0.productIdentifier == productWithidentifier }).first else {return}
+        let payment = SKPayment(product: product)
+        paymentQueue.add(payment)
+        testingPrint("Add product in paymentQueue with id: \(payment.productIdentifier)")
+    }
+    
+        public func purchased(_ index: String) {
+        guard let product = products?[index] else {return}
+        let payment = SKPayment(product: product)
+        paymentQueue.add(payment)
+        testingPrint("Add product in paymentQueue with id: \(payment.productIdentifier)")
+    }
+    
+    public func restoreProducts() {
+        paymentQueue.restoreCompletedTransactions()
+    }
     
 }
 
