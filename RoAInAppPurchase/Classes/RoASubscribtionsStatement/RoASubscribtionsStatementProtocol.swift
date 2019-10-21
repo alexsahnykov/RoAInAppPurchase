@@ -10,8 +10,6 @@ import Foundation
 
 public class RoASubscribtionStatement: RoASubscribtionsStatementProtocol {
     
-    public static let shared = RoASubscribtionStatement()
-    
     private let userDefaultsSubscribtionKey = "userDefaultsSubscribtionKey"
     
     public static func checkSubscribeStatus() -> RoASubscribtionStatus {
@@ -32,6 +30,6 @@ public class RoASubscribtionStatement: RoASubscribtionsStatementProtocol {
         }
     }
     
-    private init() {}
+    public init() {}
     
 }

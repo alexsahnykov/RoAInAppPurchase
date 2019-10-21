@@ -46,6 +46,7 @@ public protocol RoAIAPManagerProtocol: SKProductsRequestDelegate, SKPaymentTrans
     
     func purchased(_ productWithidentifier: String)
     
+    
     /// Asks the payment queue to restore previously completed purchases.
     ///
     /** Use this method to restore finished transactions—that is, transactions for which you have already called finishTransaction(_:).
@@ -53,6 +54,9 @@ public protocol RoAIAPManagerProtocol: SKProductsRequestDelegate, SKPaymentTrans
      * To install purchases on additional devices
      * To restore purchases for an application that the user deleted and reinstalled */
     
+    
     func restoreProducts()
+    
+    public func purchased(_ index: String)
     
 }
