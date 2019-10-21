@@ -55,7 +55,7 @@ extension RoAIAPManager: RoAIAPManagerProtocol {
         testingPrint("Add product in paymentQueue with id: \(payment.productIdentifier)")
     }
     
-        public func purchased(_ index: String) {
+        public func purchased(_ index: Int) {
         guard let product = products?[index] else {return}
         let payment = SKPayment(product: product)
         paymentQueue.add(payment)
