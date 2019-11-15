@@ -12,7 +12,7 @@ public class RoASubscribtionStatement: RoASubscribtionsStatementProtocol {
     
     private let userDefaultsSubscribtionKey = "userDefaultsSubscribtionKey"
     
-    public static func checkSubscribeStatus() -> RoASubscribtionStatus {
+    public  func checkSubscribeStatus() -> RoASubscribtionStatus {
         switch UserDefaults.standard.bool(forKey: "enable") {
         case true:
             return .avalable
@@ -21,7 +21,7 @@ public class RoASubscribtionStatement: RoASubscribtionsStatementProtocol {
         }
     }
     
-    public static func saveSubscribeStatusInApp(_ isAvailable: RoASubscribtionStatus) {
+    public  func saveSubscribeStatusInApp(_ isAvailable: RoASubscribtionStatus) {
         switch isAvailable {
         case .avalable:
             UserDefaults.standard.set(true, forKey: "enable")
