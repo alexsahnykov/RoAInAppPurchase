@@ -81,7 +81,7 @@ extension RoAIAPManager: SKPaymentTransactionObserver {
             case .purchased:
                 completed(transaction: transaction)
             case .restored:
-                    restored(transaction: transaction)
+                restored(transaction: transaction)
             @unknown default:
                 fatalError()
             }
@@ -95,16 +95,18 @@ extension RoAIAPManager: SKPaymentTransactionObserver {
             }
         }
         let getProduct = products?.filter {$0.productIdentifier == transaction.transactionIdentifier}.first
-        guard let product = getProduct else {return}
+        guard let product = getProduct else {
+            paymentQueue.finishTransaction(transaction)
+            return}
         paymentQueue.finishTransaction(transaction)
         self.delegate?.failed(transaction: transaction, product: product)
     }
     
     private func completed(transaction: SKPaymentTransaction) {
         let getProduct = products?.filter {$0.productIdentifier == transaction.transactionIdentifier}.first
-        guard let product = getProduct else {return}
-//            if #available(iOS 11.2, *) {
-//            print(product.subscriptionPeriod)}
+        guard let product = getProduct else {
+            paymentQueue.finishTransaction(transaction)
+            return}
         paymentQueue.finishTransaction(transaction)
         self.delegate?.purchased(transaction: transaction, product: product)
         testingPrint("Transaction completed")
@@ -112,7 +114,9 @@ extension RoAIAPManager: SKPaymentTransactionObserver {
     
     private func deffered(transaction: SKPaymentTransaction) {
         let getProduct = products?.filter {$0.productIdentifier == transaction.transactionIdentifier}.first
-        guard let product = getProduct else {return}
+        guard let product = getProduct else {
+            paymentQueue.finishTransaction(transaction)
+            return}
         paymentQueue.finishTransaction(transaction)
         self.delegate?.deferred(transaction: transaction, product: product)
         testingPrint("Transaction deffered")
@@ -120,7 +124,9 @@ extension RoAIAPManager: SKPaymentTransactionObserver {
     
     private func purchasing(transaction: SKPaymentTransaction) {
         let getProduct = products?.filter {$0.productIdentifier == transaction.transactionIdentifier}.first
-        guard let product = getProduct else {return}
+        guard let product = getProduct else {
+            paymentQueue.finishTransaction(transaction)
+            return}
         self.delegate?.purchasing(transaction: transaction, product: product)
         testingPrint("Transaction purchasing")
     }
@@ -128,7 +134,9 @@ extension RoAIAPManager: SKPaymentTransactionObserver {
     private func restored(transaction: SKPaymentTransaction) {
         SKPaymentQueue.default().restoreCompletedTransactions()
         let getProduct = products?.filter {$0.productIdentifier == transaction.transactionIdentifier}.first
-        guard let product = getProduct else {return}
+         guard let product = getProduct else {
+            paymentQueue.finishTransaction(transaction)
+            return}
         self.delegate?.restored(transaction: transaction, product: product)
         testingPrint("Products restored")
     }
