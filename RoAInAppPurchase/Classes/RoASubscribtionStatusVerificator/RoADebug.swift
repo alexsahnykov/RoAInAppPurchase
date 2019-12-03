@@ -6,6 +6,8 @@
 //
 
 
-class RoADebugg {
-    
+public func testingPrint(_ object: Any) {
+    #if DEBUG
+    print("[RoAInAppPurchase] + \(object)")
+    #endif
 }

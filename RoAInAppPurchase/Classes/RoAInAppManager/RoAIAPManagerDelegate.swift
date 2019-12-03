@@ -25,31 +25,31 @@ public protocol RoAIAPManagerDelegate: class {
     ///
     /// - Parameter transaction: A currient transaction that was updated.
     
-    func deferred(transaction: SKPaymentTransaction, product: SKProduct)
+    func deferred(transaction: SKPaymentTransaction)
     
     /// Add action after purchase was purchasing.
     ///
     /// - Parameter transaction: A currient transaction that was updated.
     
-    func purchasing(transaction: SKPaymentTransaction, product: SKProduct)
+    func purchasing(transaction: SKPaymentTransaction)
     
     /// Add action after purchase was purchased.
     ///
     /// - Parameter transaction: A currient transaction that was updated.
     
-    func purchased(transaction: SKPaymentTransaction, product: SKProduct)
+    func purchased(transaction: SKPaymentTransaction)
     
     /// Add action after purchase was purchasing.
     ///
     /// - Parameter transaction: A currient transaction that was updated.
     
-    func failed(transaction: SKPaymentTransaction, product: SKProduct)
+    func failed(transaction: SKPaymentTransaction)
     
     /// Add action after purchase was failed.
     ///
     /// - Parameter transaction: A currient transaction that was updated.
     
-    func restored(transaction: SKPaymentTransaction, product: SKProduct)
+    func restored(transaction: SKPaymentTransaction)
     
     /// Add action after purchase was restored.
     ///
@@ -59,23 +59,23 @@ public protocol RoAIAPManagerDelegate: class {
 
 extension RoAIAPManagerDelegate {
     
-    func deferred(transaction: SKPaymentTransaction, product: SKProduct) {
+    func deferred(transaction: SKPaymentTransaction) {
         return
     }
     
-    func purchasing(transaction: SKPaymentTransaction, product: SKProduct) {
+    func purchasing(transaction: SKPaymentTransaction) {
         return
     }
     
-    func purchased(transaction: SKPaymentTransaction, product: SKProduct) {
+    func purchased(transaction: SKPaymentTransaction) {
         return
     }
     
-    func failed(transaction: SKPaymentTransaction, product: SKProduct) {
+    func failed(transaction: SKPaymentTransaction) {
         return
     }
     
-    func restored(transaction: SKPaymentTransaction, product: SKProduct) {
+    func restored(transaction: SKPaymentTransaction) {
         return
     }
     
@@ -83,3 +83,4 @@ extension RoAIAPManagerDelegate {
         return
     }
 }
+
