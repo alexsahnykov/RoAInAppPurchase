@@ -57,6 +57,7 @@ public protocol RoAIAPManagerProtocol: SKProductsRequestDelegate, SKPaymentTrans
     
     func restoreProducts()
     
-     func purchased(_ index: Int)
+    func purchased(_ index: Int)
     
 }
+

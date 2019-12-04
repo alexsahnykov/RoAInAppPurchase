@@ -1,16 +1,35 @@
 //
-//  RoASubscribtionsStatement.swift
+//  SubscribtionsStatementManager.swift
 //  Horoscope
 //
-//  Created by Александр Сахнюков on 24/07/2019.
+//  Created by Александр Сахнюков on 15/07/2019.
 //  Copyright © 2019 Александр Сахнюков. All rights reserved.
 //
 
-public protocol RoASubscribtionsStatementProtocol {
+import Foundation
+
+public class RoASubscribtionStatement: RoASubscribtionsStatementProtocol {
     
-   static func checkSubscribeStatus() -> RoASubscribtionStatus
+    private let userDefaultsSubscribtionKey = "userDefaultsSubscribtionKey"
     
-   static func saveSubscribeStatusInApp(_ isAvailable: RoASubscribtionStatus)
+    public  func checkSubscribeStatus() -> RoASubscribtionStatus {
+        switch UserDefaults.standard.bool(forKey: "enable") {
+        case true:
+            return .avalable
+        case false:
+            return .unavalable
+        }
+    }
+    
+    public  func saveSubscribeStatusInApp(_ isAvailable: RoASubscribtionStatus) {
+        switch isAvailable {
+        case .avalable:
+            UserDefaults.standard.set(true, forKey: "enable")
+        case .unavalable:
+            UserDefaults.standard.set(false, forKey: "enable")
+        }
+    }
+    
+    public init() {}
     
 }
-
