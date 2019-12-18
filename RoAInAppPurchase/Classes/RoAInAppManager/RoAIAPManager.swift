@@ -39,11 +39,11 @@ extension RoAIAPManager: RoAIAPManagerProtocol {
         })
     }
     
-    public func isProductsAvalable(productsId: String) -> Bool? {
-       return productsStatment?.isAvalable(product: productsId)
+    public func isProductsAvalable(productsId: String) -> Bool {
+        return productsStatment?.isAvalable(product: productsId) ?? false
     }
     
-    public func isHaveSubscribtion(subIDs: [String]) -> Bool? {
+    public func isHaveSubscribtion(subIDs: [String]) -> Bool {
         let newArray = subIDs.filter {(productsStatment?.isAvalable(product: $0) ?? false)}
         guard newArray.isEmpty else {
             return true
