@@ -18,7 +18,7 @@ public protocol RoAIAPManagerProtocol: SKProductsRequestDelegate, SKPaymentTrans
     
     /// Object that controls the status of subscriptions
     
-     var productsStatment: RoASubscribtionsStatementProtocol? { get }
+     var productsStatment: RoAProductsStatementProtocol? { get }
     
     /// Object that verificate  the status of subscriptions
     
@@ -58,6 +58,8 @@ public protocol RoAIAPManagerProtocol: SKProductsRequestDelegate, SKPaymentTrans
     func restoreProducts()
     
     func purchased(_ index: Int)
+    
+    func updateProductsStatus () 
     
 }
 

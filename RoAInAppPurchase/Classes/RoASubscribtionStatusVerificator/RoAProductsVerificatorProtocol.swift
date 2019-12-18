@@ -8,7 +8,7 @@
 
 public protocol RoAProductsVerificatorProtocol {
 
-    func getSubscribtionStatus(_ complition: @escaping(RoASubscribtionStatus, String?) -> Void)
+    func updateProductsStatus(_ products: Set<String>?, complition: @escaping(_ avalableProducts: [String]) -> Void)
     
-    func getNonConsumableProductStatus(productID: String, _ complition: @escaping(RoASubscribtionStatus, _ latestProduct: String?) -> Void)
 }
+

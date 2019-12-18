@@ -17,7 +17,7 @@ public final class RoAIAPManager: NSObject {
     
     weak public var delegate: RoAIAPManagerDelegate?
     
-    public var productsStatment: RoASubscribtionsStatementProtocol?
+    public var productsStatment: RoAProductsStatementProtocol?
     
     public var productsVerificator: RoAProductsVerificatorProtocol?
     
@@ -30,6 +30,27 @@ public final class RoAIAPManager: NSObject {
 }
 
 extension RoAIAPManager: RoAIAPManagerProtocol {
+   
+    public func updateProductsStatus() {
+        productsVerificator?.updateProductsStatus(productsIDs, complition: { avalableProducts in
+            avalableProducts.forEach {
+                self.productsStatment?.saveInAppStatus($0, isAvailable: true)
+            }
+        })
+    }
+    
+    public func isProductsAvalable(productsId: String) -> Bool? {
+       return productsStatment?.isAvalable(product: productsId)
+    }
+    
+    public func isHaveSubscribtion(subIDs: [String]) -> Bool? {
+        let newArray = subIDs.filter {(productsStatment?.isAvalable(product: $0) ?? false)}
+        guard newArray.isEmpty else {
+            return true
+        }
+        return false
+    }
+    
     
     public func isIAPServrAvalable (callback: @escaping(Bool)->()) {
         if SKPaymentQueue.canMakePayments() {

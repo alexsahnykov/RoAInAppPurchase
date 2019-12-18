@@ -21,7 +21,7 @@
 		E5B51394FA1ED0C2F80441056F747651 /* RoASubscribtionStatusVerificator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8090137CC43EA91A24519E84DF6CD0 /* RoASubscribtionStatusVerificator.swift */; };
 		EB04CB3F7434C2A0E7023E621F58CA36 /* RoADebug.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA88859D80379D1650D099F946019F54 /* RoADebug.swift */; };
 		F8DA97765ECB58D520FD7437B4EC3D1A /* RoAProductsVerificatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFB84558F065854DF8D7538699ECF0A /* RoAProductsVerificatorProtocol.swift */; };
-		FBFD9ECA0F9EEA068EDEA5B09334552D /* RoASubscribtionsStatementProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6AA3227CDF0083C54A36FA75862450 /* RoASubscribtionsStatementProtocol.swift */; };
+		FBFD9ECA0F9EEA068EDEA5B09334552D /* RoAProductsStatementProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6AA3227CDF0083C54A36FA75862450 /* RoAProductsStatementProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,7 +46,7 @@
 		616A616945E4BEC17575BC08DFE09AB5 /* RoASubscribtionsStatement.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RoASubscribtionsStatement.swift; sourceTree = "<group>"; };
 		64EA098BB26880CED5F27976F087CE9C /* RoAInAppPurchase-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "RoAInAppPurchase-Info.plist"; sourceTree = "<group>"; };
 		6C80296697B3E43F2F644EB6BF6DE98B /* Pods-RoAInAppPurchase_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-RoAInAppPurchase_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		6F6AA3227CDF0083C54A36FA75862450 /* RoASubscribtionsStatementProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RoASubscribtionsStatementProtocol.swift; sourceTree = "<group>"; };
+		6F6AA3227CDF0083C54A36FA75862450 /* RoAProductsStatementProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RoAProductsStatementProtocol.swift; sourceTree = "<group>"; };
 		6F7A8D2481A89768A2C275DED950B66A /* RoASubscribtionStatus.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RoASubscribtionStatus.swift; path = RoAInAppPurchase/Classes/RoASubscribtionStatus.swift; sourceTree = "<group>"; };
 		7950D57EE298D1B1E634867B730ED751 /* RoAInAppPurchase.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = RoAInAppPurchase.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		808620FE6998C970D4998792B7B538D8 /* RoAIAPManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RoAIAPManager.swift; sourceTree = "<group>"; };
@@ -206,7 +206,7 @@
 		F5F82CC6FF86D260530D278FCA195CF3 /* RoASubscribtionsStatement */ = {
 			isa = PBXGroup;
 			children = (
-				6F6AA3227CDF0083C54A36FA75862450 /* RoASubscribtionsStatementProtocol.swift */,
+				6F6AA3227CDF0083C54A36FA75862450 /* RoAProductsStatementProtocol.swift */,
 				616A616945E4BEC17575BC08DFE09AB5 /* RoASubscribtionsStatement.swift */,
 			);
 			name = RoASubscribtionsStatement;
@@ -349,7 +349,7 @@
 				5462CDD2380DE8A0DC3EE105076F5242 /* RoAIAPManagerProtocol.swift in Sources */,
 				C64562E2B02A36F5F122AC4203E2C2ED /* RoAInAppPurchase-dummy.m in Sources */,
 				F8DA97765ECB58D520FD7437B4EC3D1A /* RoAProductsVerificatorProtocol.swift in Sources */,
-				FBFD9ECA0F9EEA068EDEA5B09334552D /* RoASubscribtionsStatementProtocol.swift in Sources */,
+				FBFD9ECA0F9EEA068EDEA5B09334552D /* RoAProductsStatementProtocol.swift in Sources */,
 				09C66686433742DC50A978C5320771A0 /* RoASubscribtionsStatement.swift in Sources */,
 				6DB9079BBB22F3F41ADAC734EA6DF649 /* RoASubscribtionStatus.swift in Sources */,
 				E5B51394FA1ED0C2F80441056F747651 /* RoASubscribtionStatusVerificator.swift in Sources */,

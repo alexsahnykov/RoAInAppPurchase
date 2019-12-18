@@ -6,11 +6,11 @@
 //  Copyright © 2019 Александр Сахнюков. All rights reserved.
 //
 
-public protocol RoASubscribtionsStatementProtocol {
+public protocol RoAProductsStatementProtocol {
     
-    func checkSubscribeStatus() -> RoASubscribtionStatus
+    func isAvalable(product: String) -> Bool
     
-    func saveSubscribeStatusInApp(_ isAvailable: RoASubscribtionStatus)
+    func saveInAppStatus(_ product: String, isAvailable: Bool)
     
 }
 

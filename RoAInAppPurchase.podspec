@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'RoAInAppPurchase'
-  s.version          = '1.3.2'
+  s.version          = '2.0'
   s.summary          = 'Description.'
   s.swift_version    = '4.0'
   s.source           = '**/*.swift'

@@ -8,25 +8,18 @@
 
 import Foundation
 
-public class RoASubscribtionStatement: RoASubscribtionsStatementProtocol {
+public class RoAProductsnStatement: RoAProductsStatementProtocol {
     
-    private let userDefaultsSubscribtionKey = "userDefaultsSubscribtionKey"
-    
-    public  func checkSubscribeStatus() -> RoASubscribtionStatus {
-        switch UserDefaults.standard.bool(forKey: "enable") {
-        case true:
-            return .avalable
-        case false:
-            return .unavalable
-        }
+    public  func isAvalable(product: String) -> Bool {
+        return UserDefaults.standard.bool(forKey: product)
     }
     
-    public  func saveSubscribeStatusInApp(_ isAvailable: RoASubscribtionStatus) {
+    public func saveInAppStatus(_ productId: String, isAvailable: Bool) {
         switch isAvailable {
-        case .avalable:
-            UserDefaults.standard.set(true, forKey: "enable")
-        case .unavalable:
-            UserDefaults.standard.set(false, forKey: "enable")
+        case true:
+            UserDefaults.standard.set(true, forKey: productId)
+        case false:
+            UserDefaults.standard.set(false, forKey: productId)
         }
     }
     

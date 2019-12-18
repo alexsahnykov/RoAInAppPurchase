@@ -57,30 +57,18 @@ public protocol RoAIAPManagerDelegate: class {
     
 }
 
-extension RoAIAPManagerDelegate {
+public extension RoAIAPManagerDelegate {
     
-    func deferred(transaction: SKPaymentTransaction) {
-        return
-    }
+    func deferred(transaction: SKPaymentTransaction) {}
     
-    func purchasing(transaction: SKPaymentTransaction) {
-        return
-    }
+    func purchasing(transaction: SKPaymentTransaction) {}
     
-    func purchased(transaction: SKPaymentTransaction) {
-        return
-    }
+    func purchased(transaction: SKPaymentTransaction) {}
     
-    func failed(transaction: SKPaymentTransaction) {
-        return
-    }
+    func failed(transaction: SKPaymentTransaction) {}
     
-    func restored(transaction: SKPaymentTransaction) {
-        return
-    }
+    func restored(transaction: SKPaymentTransaction) {}
     
-    func productRequestDidFinished() {
-        return
-    }
+    func productRequestDidFinished() {}
 }
 
